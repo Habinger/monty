@@ -79,6 +79,14 @@ void _div(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	temp = *stack;
+	if (temp->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_dlistint(stack);
+		p_id = &id;
+		*p_id = -1;
+		return;
+	}
 	div = (temp->next)->n / temp->n;
 	(temp->next)->n = div;
 	_pop(stack, line_number);
@@ -136,6 +144,14 @@ void _mod(stack_t **stack, unsigned int line_number)
 	}
 	temp = *stack;
 	mod = (temp->next)->n % temp->n;
+	if (temp->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_dlistint(stack);
+		p_id = &id;
+		*p_id = -1;
+		return;
+	}
 	(temp->next)->n = mod;
 	_pop(stack, line_number);
 }
