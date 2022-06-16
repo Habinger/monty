@@ -61,7 +61,11 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	if ((*stack)->n < 0 || (*stack)->n > 127)
+	if ((*stack)->n >= 0 && (*stack)->n <= 127)
+	{
+		printf("%c\n", (*stack)->n);
+	}
+	else
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		free_dlistint(stack);
@@ -69,9 +73,6 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		*p_id = -1;
 		return;
 	}
-
-	putchar((*stack)->n);
-	putchar('\n');
 }
 
 /**
