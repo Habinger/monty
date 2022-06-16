@@ -51,6 +51,7 @@ void _nop(stack_t **stack, unsigned int line_number)
 void _pchar(stack_t **stack, unsigned int line_number)
 {
 	int *p_id;
+
 	(void)(line_number);
 	if (*stack == NULL)
 	{

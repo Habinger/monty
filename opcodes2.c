@@ -143,7 +143,6 @@ void _mod(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	temp = *stack;
-	mod = (temp->next)->n % temp->n;
 	if (temp->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
@@ -152,6 +151,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 		*p_id = -1;
 		return;
 	}
+	mod = (temp->next)->n % temp->n;
 	(temp->next)->n = mod;
 	_pop(stack, line_number);
 }
