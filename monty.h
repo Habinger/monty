@@ -39,6 +39,9 @@ typedef struct instruction_s
 
 void file_mode(char *filename, stack_t **h);
 
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+
 stack_t *add_dnodeint(stack_t **head, int n);
 stack_t *add_dnodeint_end(stack_t **head, int n);
 void print_dlistint(stack_t **h);

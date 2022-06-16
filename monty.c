@@ -20,7 +20,7 @@ void exec_op(char **args, stack_t **h, int *ltr)
 		{"rotl", _rotl}, {"rotr", _rotr},
 		{"stack", _stack}, {"queue", _queue}};
 
-	if (strcmp("push", args[0]) == 0)
+	if (_strcmp("push", args[0]) == 0)
 	{
 		_push(h, args, ++*ltr);
 	}
@@ -28,7 +28,7 @@ void exec_op(char **args, stack_t **h, int *ltr)
 	{
 		for (i = 0; op[i].opcode; i++)
 		{
-			if (strcmp(op[i].opcode, args[0]) == 0)
+			if (_strcmp(op[i].opcode, args[0]) == 0)
 			{
 				(op[i].f)(h, ++*ltr);
 				break;

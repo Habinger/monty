@@ -69,13 +69,13 @@ char **tokenise(char *str)
  */
 int IsNumeric(char *String)
 {
-	size_t i;
+	int i;
 
 	if (String == NULL)
 		return (0);
 	if (String[0] == '-')
 	{
-		for (i = 1; i < strlen(String); i++)
+		for (i = 1; i < _strlen(String); i++)
 		{
 			if ((String[i] < '0') || (String[i] > '9'))
 				return (0);
@@ -83,7 +83,7 @@ int IsNumeric(char *String)
 	}
 	else
 	{
-		for (i = 0; i < strlen(String); i++)
+		for (i = 0; i < _strlen(String); i++)
 		{
 			if ((String[i] < '0') || (String[i] > '0' + 9))
 				return (0);
