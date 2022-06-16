@@ -9,7 +9,7 @@ void print_dlistint(stack_t **h)
 {
 	stack_t *temp;
 
-	if (*h == NULL)
+	if (*h == NULL || h == NULL)
 		return;
 
 	temp = *h;
