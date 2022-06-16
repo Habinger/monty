@@ -11,35 +11,36 @@ void exec_op(char **args, stack_t **h, int *ltr)
 {
 	int i, *p_id;
 	instruction_t op[] = {
-		{"pall", _pall}, {"pint", _pint},
+		{"pint", _pint}, {"pall", _pall},
 		{"pop", _pop}, {"swap", _swap},
 		{"add", _add}, {"sub", _sub},
 		{"mul", _mul}, {"div", _div},
 		{"mod", _mod}, {"nop", _nop},
 		{"pchar", _pchar}, {"pstr", _pstr},
 		{"rotl", _rotl}, {"rotr", _rotr},
-		{"stack", _stack}, {"queue", _queue}};
+		{"stack", _stack}, {"queue", _queue},
+		{NULL, NULL}};
 
-	if (_strcmp("push", args[0]) == 0)
+	if (strcmp("push", args[0]) == 0)
 	{
 		_push(h, args, ++*ltr);
+	}
+	else if (check_instruction(op, args))
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", ++*ltr, args[0]);
+		free_dlistint(h);
+		p_id = &id;
+		*p_id = -1;
+		return;
 	}
 	else
 	{
 		for (i = 0; op[i].opcode; i++)
 		{
-			if (_strcmp(op[i].opcode, args[0]) == 0)
+			if (strcmp(op[i].opcode, args[0]) == 0)
 			{
 				(op[i].f)(h, ++*ltr);
 				break;
-			}
-			else
-			{
-				fprintf(stderr, "L%d: unknown instruction %s\n", ++*ltr, args[0]);
-				free_dlistint(h);
-				p_id = &id;
-				*p_id = -1;
-				return;
 			}
 		}
 	}

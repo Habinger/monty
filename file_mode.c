@@ -24,8 +24,8 @@ void file_mode(char *filename, stack_t **h)
 	{
 		while (fgets(line, sizeof(line), fptr) != NULL)
 		{
-			if (line[_strlen(line) - 1] == '\n')
-				line[_strlen(line) - 1] = '\0';
+			if (line[strlen(line) - 1] == '\n')
+				line[strlen(line) - 1] = '\0';
 			t_input = line;
 			input = rem_(t_input);
 			if (input[0] == '\0' || input[0] == '#' || input[0] == '\n')
@@ -40,4 +40,26 @@ void file_mode(char *filename, stack_t **h)
 	fclose(fptr);
 	if (id == -1)
 		exit(EXIT_FAILURE);
+}
+
+/**
+ * check_instruction - Check instruction
+ *
+ * @op: opcode
+ * @args: arguments
+ * Return: 1 or 0
+ */
+int check_instruction(instruction_t *op, char **args)
+{
+	int i;
+
+	i = 0;
+
+	for (i = 0; op[i].opcode; i++)
+	{
+		if (strcmp(op[i].opcode, args[0]) == 0)
+			return (0);
+	}
+
+	return (1);
 }

@@ -39,9 +39,6 @@ typedef struct instruction_s
 
 void file_mode(char *filename, stack_t **h);
 
-int _strlen(char *s);
-int _strcmp(char *s1, char *s2);
-
 stack_t *add_dnodeint(stack_t **head, int n);
 stack_t *add_dnodeint_end(stack_t **head, int n);
 void print_dlistint(stack_t **h);
@@ -52,6 +49,7 @@ char *rem_(char *str);
 void check_args(int argc);
 char **tokenise(char *str);
 int IsNumeric(char *String);
+int check_instruction(instruction_t *op, char **args);
 
 void exec_op(char **args, stack_t **h, int *ltr);
 void _push(stack_t **h, char **args, unsigned int line_number);
