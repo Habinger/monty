@@ -28,6 +28,7 @@ void file_mode(char *filename, stack_t **h)
 				line[strlen(line) - 1] = '\0';
 			t_input = line;
 			input = rem_(t_input);
+			++*ltr;
 			if (input[0] == '\0' || input[0] == '#' || input[0] == '\n')
 				continue;
 			args = tokenise(input);

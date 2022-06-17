@@ -23,11 +23,11 @@ void exec_op(char **args, stack_t **h, int *ltr)
 
 	if (strcmp("push", args[0]) == 0)
 	{
-		_push(h, args, ++*ltr);
+		_push(h, args, *ltr);
 	}
 	else if (check_instruction(op, args))
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", ++*ltr, args[0]);
+		fprintf(stderr, "L%d: unknown instruction %s\n", *ltr, args[0]);
 		free_dlistint(h);
 		p_id = &id;
 		*p_id = -1;
@@ -39,7 +39,7 @@ void exec_op(char **args, stack_t **h, int *ltr)
 		{
 			if (strcmp(op[i].opcode, args[0]) == 0)
 			{
-				(op[i].f)(h, ++*ltr);
+				(op[i].f)(h, *ltr);
 				break;
 			}
 		}

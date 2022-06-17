@@ -55,7 +55,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	(void)(line_number);
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: usage: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		p_id = &id;
 		*p_id = -1;
 		return;
